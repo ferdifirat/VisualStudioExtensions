@@ -1,4 +1,5 @@
-﻿using EnvDTE;
+﻿using CodeGenerator.Helpers;
+using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
@@ -109,8 +110,13 @@ namespace CodeGenerator
                 var fullPath = fullPathProperty.Value.ToString();
 
                 MessageBox.Show(string.Format($"Your fullpath {fullPath}"));
-            }
 
+                var className = Path.GetFileName(fullPath).Replace(".cs", "");
+                new CodeBuilder(solutionName,className);
+
+                MessageBox.Show("Classes created!");
+            }
+            
             // Show a message box to prove we were here
             VsShellUtilities.ShowMessageBox(
                 this.package,

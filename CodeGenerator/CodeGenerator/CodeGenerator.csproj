@@ -46,6 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CodeGeneratorCustomCommand.cs" />
+    <Compile Include="Helpers\CodeBuilder.cs" />
     <Compile Include="Helpers\Methods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CodeGeneratorPackage.cs" />

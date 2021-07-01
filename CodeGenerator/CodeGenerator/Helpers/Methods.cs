@@ -5,7 +5,7 @@ namespace CodeGenerator.Helpers
 {
     public static class Methods
     {
-        public static void CreateFile(string content, string path, string fileName)
+        public static void CreateFile(string content, string path, string fileName, bool overwrite = false)
         {
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
             var filePath = Path.Combine(path, fileName);
@@ -20,7 +20,7 @@ namespace CodeGenerator.Helpers
                         writer.Write(content);
                     }
                 }
-                else
+                else if(overwrite)
                 {
                     File.Delete(filePath);
                     fs = new FileStream(filePath, FileMode.CreateNew);
